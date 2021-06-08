@@ -1,6 +1,8 @@
 import { Checkbox, Form, Input, Button, DatePicker } from 'antd';
 import styled from '@emotion/styled';
 import moment from 'moment';
+import {Helmet} from "react-helmet";
+
 
 const PageContainer = styled.div`
   padding: 20px 30px;
@@ -29,6 +31,10 @@ const Contact = ({ form }) => {
 
   return (
     <PageContainer>
+      <Helmet>
+        <link rel="prefetch" href="./assets/terms-and-conditions.pdf" />
+      </Helmet>
+
       <Title>Contact Us</Title>
       <div>Using this form, you can directly send a message to us.</div>
 
