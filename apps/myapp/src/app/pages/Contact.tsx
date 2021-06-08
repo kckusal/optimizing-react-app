@@ -1,4 +1,4 @@
-import { Form, Input, Button, DatePicker } from 'antd';
+import { Checkbox, Form, Input, Button, DatePicker } from 'antd';
 import styled from '@emotion/styled';
 import moment from 'moment';
 
@@ -52,6 +52,9 @@ const Contact = ({ form }) => {
             {}
           )(<Input.TextArea rows={6} style={{ minWidth: 360 }} />)}
         </FormItem>
+
+        <p>
+        {getFieldDecorator('termsAndConditions', {})(<Checkbox>I agree to <a href="./assets/terms-and-conditions.pdf" target="_blank" >terms and conditions</a>.</Checkbox>)}</p>
 
         <Button type="primary">Send Message</Button>
       </Form>

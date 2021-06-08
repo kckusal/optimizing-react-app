@@ -19,6 +19,11 @@ const PageContainer = styled.div`
   }
 `;
 
+const Image = styled.img`
+  object-fit: contain;
+  width: 100%;
+`
+
 const Home = () => {
   return (
     <PageContainer>
@@ -38,6 +43,12 @@ const Home = () => {
         <em> minimalistic</em> so as to avoid the complexity that the design &
         development processes would bring to the study.
       </p>
+
+      <br />
+      <br />
+
+      <p>While you are here, enjoy this beautiful landscape.</p>
+      <Image src="./assets/images/landscape_800p.jpg" />
     </PageContainer>
   );
 };
