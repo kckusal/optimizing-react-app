@@ -1,4 +1,7 @@
 import styled from '@emotion/styled';
+import { useEffect, useState } from 'react';
+
+import useWindowSize from '../hooks/useWindowSize'
 
 const PageContainer = styled.div`
   padding: 20px 30px;
@@ -25,6 +28,20 @@ const Image = styled.img`
 `
 
 const Home = () => {
+  const { width: deviceWidth } = useWindowSize();
+  const [landscapeSrc, setLandscapeSrc] = useState('');
+
+  useEffect(() => {
+    if (!landscapeSrc && deviceWidth) {
+      if (deviceWidth < 400) {
+        setLandscapeSrc('./assets/images/landscape_275p.jpg')
+      } else {
+        setLandscapeSrc('./assets/images/landscape_800p.jpg')
+      }
+    }
+  }, [deviceWidth, landscapeSrc]);
+
+
   return (
     <PageContainer>
       <h2>Hello !</h2>
@@ -48,7 +65,7 @@ const Home = () => {
       <br />
 
       <p>While you are here, enjoy this beautiful landscape.</p>
-      <Image src="./assets/images/landscape_800p.jpg" />
+      <Image src={landscapeSrc} />
     </PageContainer>
   );
 };
