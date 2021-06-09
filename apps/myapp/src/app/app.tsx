@@ -1,5 +1,4 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import 'antd/dist/antd.css';
 
 import AppLayout from './AppLayout';
 import RoutesLoader from './RoutesLoader';
