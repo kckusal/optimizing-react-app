@@ -9,7 +9,14 @@ const nrwlWebpack = require('@nrwl/react/plugins/webpack');
 module.exports = (config, context) => {
   const nrwlConfig = nrwlWebpack(config);
 
+  const plugins = [
+    // Ignore all locale files of moment.js
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+  ];
+
+  plugins.push(new BundleAnalyzerPlugin());
+
   return merge(nrwlConfig, {
-    plugins: [new BundleAnalyzerPlugin()],
+    plugins,
   });
 };
